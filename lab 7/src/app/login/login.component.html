@@ -1,0 +1,77 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  &lt;!&ndash;  <link rel="stylesheet" type="text/css" href="../style/main.css">&ndash;&gt;
+</head>
+
+<body>
+<div class="container-main container-login">
+  <div class="wrap-main wrap-login">
+
+    <form class="form-main form-login">
+      <span class="title-main">
+        Login
+      </span>
+
+      <span class="subtitle-main">
+        Username
+      </span>
+      <div class="wrap-input">
+        <input class="input" type="text" name="username" placeholder="Username" [(ngModel)]="username">
+      </div>
+
+      <span class="subtitle-main">
+        Password
+      </span>
+      <div class="wrap-input">
+        <input class="input" type="password" name="password" placeholder="Password" [(ngModel)]="password">
+      </div>
+
+      <div class="wrap-button">
+        <button (click)="login()" class="button">Login</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+&lt;!&ndash;
+<form action="../PHP/login.php" method="post">
+    Username: <input type="text" name="username"><br>
+    Password: <input type="text" name="password"><br>
+    <input type="submit">
+</form>
+&ndash;&gt;
+
+</body>
+</html>
+-->
+
+<div class="container-main container-login">
+  <div class="wrap-main wrap-login">
+<span class="title-main">
+                Log In
+            </span>
+      <form class = "form-main form-login" [formGroup]="angForm" (ngSubmit)="postdata(angForm)" autocomplete="off" >
+
+        <div class="wrap-input">
+          <label for="Username">Username</label>
+          <input type="username" name="username" formControlName="username" class="input" placeholder="Username">
+        </div>
+
+        <div class="wrap-input">
+          <label for="Password">Password</label>
+          <input type="password" name="Password" formControlName="password" class="input" placeholder="Password">
+        </div>
+
+        <button type="submit" class="button" >Login</button>
+
+      </form>
+    </div>
+  </div>
+  <div class="col-md-5">
+  </div>
+

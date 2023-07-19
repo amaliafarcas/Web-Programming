@@ -1,0 +1,167 @@
+
+.container-main {
+  width: 100%;
+  min-height: 100vh;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.wrap-main {
+  position:relative;
+  width: 800px;
+  margin-top: 1px;
+  margin-bottom: 60px;
+  border-radius: 4px;
+  overflow: hidden;
+  padding: 70px 40px 33px;
+
+  background-color: white;
+  opacity: 50%;
+  align-content: center;
+}
+
+.form-main {
+  width: 100%;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.title-main {
+  font-size: 40px;
+  color: black;
+  display: block;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.subtitle-main {
+  font-size: 20px;
+  color: black;
+  display: block;
+  padding-bottom: 6px;
+}
+
+
+.wrap-input {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+  border-radius: 13px;
+  padding: 10px 30px 10px 30px;
+  margin-bottom: 20px;
+}
+
+.input {
+  outline: none;
+  border: none;
+  display: block;
+  width: 100%;
+  background: transparent;
+  font-size: 17px;
+}
+
+.wrap-button {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 60%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.homepage-button {
+  float: left;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  width: 30%;
+  display: block;
+  margin-left: 0;
+  margin-right: auto;
+
+}
+
+.button{
+  font-size: 16px;
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  width: 60%;
+  border-radius: 10px;
+  height: 44px;
+
+  color:white;
+
+  position: relative;
+
+  background: black;
+}
+
+.pagination {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.pages{
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  border-radius: 4px;
+  height: 30px;
+  padding-right: 10px;
+
+  color:white;
+
+  position: relative;
+
+  background: dimgray;
+}
+
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  align-content: center;
+  align-items: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+}
+
+td, th {
+  border: 1px solid dimgray;
+  text-align: left;
+  padding: 8px;
+  font-weight: normal;
+}
+
+tr.bold-row th {
+  font-weight: bold;
+}
+
+/*tr:nth-child(even) {
+    background-color: #dddddd;
+}*/
+
+

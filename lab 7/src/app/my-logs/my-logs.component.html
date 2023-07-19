@@ -1,0 +1,99 @@
+
+<!--<h2>List of logs</h2>-->
+<!--<table class="students">-->
+<!--  <tr *ngFor="let log of logs">-->
+<!--    <td>new log</td>-->
+<!--&lt;!&ndash;    <td>{{log.logId}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;    <td>{{log.type}}</td>&ndash;&gt;-->
+<!--    <td *ngFor="let cell of log">{{cell}}</td>-->
+<!--  </tr>-->
+<!--</table>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Logs</title>
+  <!--  <link rel="stylesheet" type="text/css" href="../style/main.css">-->
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <!--  <script src="../scripts/script.js"></script>-->
+</head>
+
+<body>
+<div class="container-main container-login">
+  <div class="wrap-main wrap-login">
+
+            <span class="title-main">
+                My Log Reports
+            </span>
+
+    <table class='table' style='margin-left: 110px;'>
+      <thead>
+      <tr>
+        <th>LogId</th>
+        <th>Type</th>
+        <th>Severity</th>
+        <th>Date</th>
+        <th>Message</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let log of logs">
+        <td>{{log.index}}</td>
+        <td>{{log.type}}</td>
+        <td>{{log.severity}}</td>
+        <td>{{log.date_of_log | date:'short'}}</td>
+        <td>{{log.message}}</td>
+        <td>
+          <button (click)="deleteLog(log.id)">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <nav class="pagination" id = "page-navigation">
+      <button class="pages" *ngIf = "showPrevious" id = "prev-button" (click) = "goToPreviousPage()">Previous</button>
+      <button class="pages" *ngIf = "showNext" id = "next-button" (click) = "goToNextPage()">Next</button>
+    </nav>
+
+
+    <!--    <div class="wrap-button">
+          &lt;!&ndash;      <input class ="button" type="button" onclick="location.href='addPage.php'" value="Add Log">&ndash;&gt;
+
+          <a routerLink="/addPage" routerLinkActive="active">
+            <button class="button">Add Log</button>
+          </a>
+
+          &lt;!&ndash;      <a href="/addPage">Add Log</a>&ndash;&gt;
+
+          &lt;!&ndash;                <button class="button">&ndash;&gt;
+          &lt;!&ndash;                    <a href="./addPage.php" value="""Add Log"></a>&ndash;&gt;
+          &lt;!&ndash;                </button>&ndash;&gt;
+        </div>-->
+
+    <div class="wrap-button">
+      <a routerLink="/addLog" routerLinkActive="active">
+        <button class="button">Add Log</button>
+      </a>
+    </div>
+
+    <!--    <div class="wrap-button">
+          <a routerLink="/deletePage" routerLinkActive="active">
+            <button class="button">Delete Log</button>
+          </a>
+        </div>-->
+
+    <div class="wrap-button">
+      <a routerLink="/homepage" routerLinkActive="active">
+        <button class="button">Homepage</button>
+      </a>
+      <!--            <form action="">-->
+      <!--                <button class="button" id="buttonAll" onclick="displayAllLogs()">Display all log reports</button>-->
+      <!--            </form>-->
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

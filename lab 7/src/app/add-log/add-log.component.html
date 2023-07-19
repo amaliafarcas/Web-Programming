@@ -1,0 +1,42 @@
+
+  <div class="container-main container-login">
+    <div class="wrap-main wrap-login">
+<span class="title-main">
+                Add Log
+            </span>
+      <form class="form-main form-login"  [formGroup]="logForm" (ngSubmit)="postLog(logForm)" autocomplete="off">
+
+        <div class="wrap-input">
+          <label for="Type">Type</label>
+          <input type="text" name="type" formControlName="type" class="input" placeholder="Enter log type">
+        </div>
+
+        <div class="wrap-input">
+          <label for="Severity">Severity</label>
+          <input type="text" name="severity" formControlName="severity" class="input" placeholder="Enter log severity">
+        </div>
+        <div class="wrap-input">
+          <label for="Date">Date</label>
+          <input type="date" name="date" formControlName="date" class="input" placeholder="Enter log date">
+        </div>
+        <div class="wrap-input">
+          <label for="Message">Message</label>
+          <textarea name="message" formControlName="message" class="input" placeholder="Enter log message"></textarea>
+        </div>
+
+        <div class="wrap-button">
+        <button type="submit" class="button" >Add Log</button>
+        </div>
+
+
+        <div class="wrap-button">
+          <a routerLink="/myLogs" routerLinkActive="active">
+            <button class="button">Cancel</button>
+          </a>
+        </div>
+
+      </form>
+    </div>
+  </div>
+  <div class="col-md-5">
+  </div>

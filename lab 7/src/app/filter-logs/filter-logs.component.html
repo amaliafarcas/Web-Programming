@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Filter Logs</title>
+</head>
+
+<body>
+<div class="container-main container-login" >
+  <div class="wrap-main wrap-login">
+
+        <span class="title-main">
+                Filter Logs
+        </span>
+
+    <table class='table' id="filterTable" style='margin-left: 155px;'>
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Type</th>
+        <th>Severity</th>
+        <th>Date</th>
+        <th>UserId</th>
+        <th>Message</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let log of logs">
+        <td *ngFor="let cell of log">{{cell}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <nav class="pagination" id = "page-navigation">
+      <button class="pages" *ngIf = "showPrevious" id = "prev-button" (click) = "goToPreviousPage(type.value, severity.value)">Previous</button>
+      <button class="pages" *ngIf = "showNext" id = "next-button" (click) = "goToNextPage(type.value, severity.value)">Next</button>
+    </nav>
+
+    <form class="form-main form-login">
+
+            <span class="subtitle-main">
+                Type
+            </span>
+      <div class="wrap-input">
+        <input class="input" type="text" id="type" name="type" placeholder="Type" #type>
+      </div>
+
+      <span class="subtitle-main">
+                Severity
+            </span>
+      <div class="wrap-input">
+        <input class="input" type="text" id="severity" name="severity" placeholder="Severity" #severity>
+      </div>
+
+
+
+      <div class="wrap-button">
+        <button (click)="loadTable(type.value, severity.value)" id="filterButton" class="button" type="button">Filter</button>
+      </div>
+    </form>
+
+    <div class="homepage-button">
+      <a routerLink="/homepage" routerLinkActive="active">
+        <button class="button">Homepage</button>
+      </a>
+    </div>
+
+
+  </div>
+</div>
