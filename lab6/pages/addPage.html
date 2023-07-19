@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Log</title>
+    <link rel="stylesheet" type="text/css" href="../style/main.css">
+</head>
+
+<body>
+<div class="container-main container-login">
+    <div class="wrap-main wrap-login">
+
+        <form class="form-main form-login" action="../php/addLog.php" method="post">
+            <span class="title-main">
+                Add Log
+            </span>
+
+
+            <div class="wrap-input">
+                <input class="input" type="text" name="type" placeholder="Type">
+            </div>
+
+            <div class="wrap-input">
+                <input class="input" type="text" name="severity" placeholder="Severity">
+            </div>
+
+            <div class="wrap-input">
+                <input class="input" type="date" name="date" placeholder="Date">
+            </div>
+
+            <div class="wrap-input">
+                <input class="input" type="text" name="message" placeholder="Message">
+            </div>
+
+            <div class="pagination">
+
+                <div class="wrap-button">
+                    <button class="button" type="button">
+                        <a href="myLogsPage.php">Cancel</a>
+                    </button>
+                </div>
+
+                <div class="wrap-button">
+                    <button class="button" type="submit">Add</button>
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>

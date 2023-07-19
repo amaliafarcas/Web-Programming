@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Puzzle</title>
+
+    <style type = "text/css">
+        img{
+            box-sizing: border-box;
+        }
+        td{
+            margin:0;
+            border: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        tr{
+            display: flex;
+            flex-direction: row;
+        }
+        table{
+            border-spacing: 0;
+            display: flex;
+            flex-direction: column;
+            /*display: block;*/
+            border-collapse: collapse;
+            border:none;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+
+    <script type="text/javascript">
+        var selectedCell = -1;
+
+        function defineCorrectOrder() {
+            correctOrder = new Array(10);
+            for (i = 1; i < 10; i++) {
+                var img = document.createElement("img");
+                img.setAttribute("src", "dog" + i + ".jpg");
+                correctOrder[i] = img;
+            }
+            return correctOrder
+        }
+
+        function loadPuzzle(){
+            pics = new Array(26);
+            for(i=1; i<=9; i++){
+                found=true;
+                while(found === true){
+                    x=1+Math.floor(Math.random() * 1000)%9;
+                    found=false;
+                    for(j=0; j<i; j++){
+                        if(pics[j]===x) found=true;
+                    }
+                }
+                pics[i]=x;
+            }
+
+            var cell;
+            for(i=1; i<10; i++){
+                cell = document.getElementById(i);
+                if(cell){
+                    img = document.createElement("img");
+                    img.setAttribute("src", "dog"+pics[i]+".jpg");
+                    cell.appendChild(img);
+                }
+            }
+        }
+
+        function move(cellID, cell){
+            console.log("this=", this, " cell=", cell);
+            if(selectedCell===-1) {
+                selectedCell = cellID;
+            }else if (selectedCell !== cellID){
+                cell1 = document.getElementById(selectedCell);
+                img1=cell1.firstChild;
+                img=cell.firstChild;
+                cell.removeChild(cell.firstChild);
+                cell1.removeChild(cell1.firstChild);
+
+                cell.appendChild(img1);
+                cell1.appendChild(img);
+                selectedCell = -1;
+                isCompleted();
+            }
+        }
+
+        function isCompleted(){
+            correctOrder = defineCorrectOrder();
+            // Get the first table in the document.
+            var table = document.getElementsByTagName('table')[0];
+            for(i=0; i<3; i++){
+                // Get a row of this table (0-index 3rd = 2)
+                var row = table.rows[i];
+                for(j=0; j<3; j++){
+                    // Get this element's content.
+                    var col = row.cells[j];
+                    var img = col.firstChild;
+                    var correct = correctOrder[i*3+j+1];
+
+                    if (img.src !== correct.src) {
+                        return;
+                    }
+                }
+            }
+            document.getElementById("demo").innerHTML = "Congrats!";
+        }
+
+
+    </script>
+</head>
+<body onload="loadPuzzle()">
+<table>
+    <tr>
+        <td id="1" onClick="move(1, this)"></td>
+        <td id="2" onClick="move(2, this)"></td>
+        <td id="3" onClick="move(3, this)"></td>
+    </tr>
+    <tr>
+        <td id="4" onClick="move(4, this)"></td>
+        <td id="5" onClick="move(5, this)"></td>
+        <td id="6" onClick="move(6, this)"></td>
+    </tr>
+    <tr>
+        <td id="7" onClick="move(7, this)"></td>
+        <td id="8" onClick="move(8, this)"></td>
+        <td id="9" onClick="move(9, this)"></td>
+    </tr>
+</table>
+
+<p id="demo"></p>
+</body>
+</html>

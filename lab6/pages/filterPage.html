@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filter Logs</title>
+    <link rel="stylesheet" type="text/css" href="../style/main.css">
+</head>
+
+<body>
+<div class="container-main container-login" >
+    <div class="wrap-main wrap-login">
+
+        <span class="title-main">
+                Filter Logs
+        </span>
+
+        <table class='table' id="filterTable" style="margin-left: 130px">
+            <thead>
+            <tr>
+                <th> Id </th>
+                <th> Type </th>
+                <th> Severity </th>
+                <th> Date </th>
+                <th> User </th>
+                <th> Message </th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+
+        </table>
+
+        <div class="pagination" id="pagination" >
+            <button class="pages" id="first" style="margin-right: 10px">
+                First
+            </button>
+            <button class="pages" id="prevPage" style="margin-right: 10px">
+                Prev
+            </button>
+            <button class="pages" id="nextPage" style="margin-right: 10px">
+                Next
+            </button>
+            <button class="pages" id="last">
+                Last
+            </button>
+        </div>
+
+
+        <form class="form-main form-login">
+
+            <div class="wrap-input">
+                <input class="input" type="text" id="type" name="type" placeholder="Type">
+            </div>
+
+            <div class="wrap-input">
+                <input class="input" type="text" id="severity" name="severity" placeholder="Severity">
+            </div>
+
+
+            <div class="pagination">
+
+                <div class="homepage-button" style="margin-top: 10px">
+                    <button class="button" type="button">
+                        <a href="homepageMain.php">Homepage</a>
+                    </button>
+                </div>
+
+                <div class="wrap-button">
+                    <button id="filterButton" class="button" type="button">Filter</button>
+                </div>
+            </div>
+        </form>
+
+
+
+    </div>
+</div>
+
+
+<script>
+    document.getElementById("filterButton").onclick = function () {
+
+        let filterTable = document.getElementById("filterTable");
+        let filterTableTbody = filterTable.getElementsByTagName("tbody")[0];
+
+        var new_tbody = document.createElement('tbody');
+        filterTableTbody.parentNode.replaceChild(new_tbody, filterTableTbody)
+
+        logType = document.getElementById("type").value;
+        logSeverity = document.getElementById("severity").value;
+
+        var ajax = new XMLHttpRequest();
+        ajax.open("GET", "../php/filterLogs.php?type=" + logType + "&severity=" + logSeverity, true);
+        ajax.send();
+
+        ajax.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                let logs = JSON.parse(this.responseText);
+
+                let logsPerPage = 4;
+                let numPages = Math.ceil(logs.length / logsPerPage);
+                let currentPage = 1;
+
+                document.getElementById("first").addEventListener("click", function() {
+                    if (currentPage > 1) {
+                        currentPage = 1;
+                        displayLogs(currentPage);
+                    }
+                });
+
+                document.getElementById("prevPage").addEventListener("click", function() {
+                    if (currentPage > 1) {
+                        currentPage--;
+                        displayLogs(currentPage);
+                    }
+                });
+
+                document.getElementById("nextPage").addEventListener("click", function() {
+                    if (currentPage < numPages) {
+                        currentPage++;
+                        displayLogs(currentPage);
+                    }
+                });
+
+                document.getElementById("last").addEventListener("click", function() {
+                    if (currentPage < numPages) {
+                        currentPage = numPages;
+                        displayLogs(currentPage);
+                    }
+                });
+
+                function displayLogs(page) {
+                    new_tbody.innerHTML = ''; // clear the table body
+                    let start = (page - 1) * logsPerPage;
+                    let end = start + logsPerPage;
+                    let displayedLogs = logs.slice(start, end);
+                    let index = start;
+
+                    for (let log of displayedLogs) {
+                        index++;
+                        let row = document.createElement("tr");
+                        new_tbody.appendChild(row);
+
+                        let cell = document.createElement("td");
+                        cell.innerText = index;
+                        row.appendChild(cell);
+
+                        for (let logColumn of log) {
+                            let cell = document.createElement("td");
+                            cell.innerText = logColumn;
+                            row.appendChild(cell);
+                        }
+                    }
+                }
+
+                displayLogs(currentPage);
+            }
+        };
+
+    };
+
+</script>
+
+</body>
+</html>

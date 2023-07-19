@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+
+    <servlet>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>com.example.examplejsp.controller.LoginController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/LoginController</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RegisterController</servlet-name>
+        <servlet-class>com.example.examplejsp.controller.RegisterController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>RegisterController</servlet-name>
+        <url-pattern>/RegisterController</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SearchController</servlet-name>
+        <servlet-class>com.example.examplejsp.controller.SearchController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SearchController</servlet-name>
+        <url-pattern>/SearchController</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateProfileController</servlet-name>
+        <servlet-class>com.example.examplejsp.controller.UpdateProfileController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UpdateProfileController</servlet-name>
+        <url-pattern>/UpdateProfileController</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetFilesController</servlet-name>
+        <servlet-class>com.example.examplejsp.controller.GetFilesController</servlet-class>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>GetFilesController</servlet-name>
+        <url-pattern>/GetFilesController</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateSession</servlet-name>
+        <servlet-class>com.example.examplejsp.controller.UpdateSession</servlet-class>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>UpdateSession</servlet-name>
+        <url-pattern>/UpdateSession</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>AddFilesController</servlet-name>
+        <servlet-class>com.example.examplejsp.controller.AddFilesController</servlet-class>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>AddFilesController</servlet-name>
+        <url-pattern>/AddFilesController</url-pattern>
+    </servlet-mapping>
+
+</web-app>

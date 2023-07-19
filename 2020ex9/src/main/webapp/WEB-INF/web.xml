@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+
+    <servlet>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>com.example.examplejsp.controller.LoginController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/LoginController</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>SearchController</servlet-name>
+        <servlet-class>com.example.examplejsp.controller.SearchController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SearchController</servlet-name>
+        <url-pattern>/SearchController</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateProfileController</servlet-name>
+        <servlet-class>com.example.examplejsp.controller.UpdateProfileController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UpdateProfileController</servlet-name>
+        <url-pattern>/UpdateProfileController</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>UpdateSession</servlet-name>
+        <servlet-class>com.example.examplejsp.controller.UpdateSession</servlet-class>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>UpdateSession</servlet-name>
+        <url-pattern>/UpdateSession</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>AddProductsController</servlet-name>
+        <servlet-class>com.example.examplejsp.controller.AddProductsController</servlet-class>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>AddProductsController</servlet-name>
+        <url-pattern>/AddProductsController </url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetOrdersController</servlet-name>
+        <servlet-class>com.example.examplejsp.controller.GetOrdersController</servlet-class>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>GetOrdersController</servlet-name>
+        <url-pattern>/GetOrdersController </url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddToCartController</servlet-name>
+        <servlet-class>com.example.examplejsp.controller.AddToCartController</servlet-class>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>AddToCartController</servlet-name>
+        <url-pattern>/AddToCartController </url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ProcessOrderController</servlet-name>
+        <servlet-class>com.example.examplejsp.controller.ProcessOrderController</servlet-class>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>ProcessOrderController</servlet-name>
+        <url-pattern>/ProcessOrderController </url-pattern>
+    </servlet-mapping>
+
+
+
+</web-app>

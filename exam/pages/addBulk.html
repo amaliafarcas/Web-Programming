@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Content</title>
+</head>
+<body><!-- Assuming you have a form where users can input content data -->
+<form action="../php/addContent.php" method="post">
+  <div id="contentInputs">
+    <div class="content-input">
+      <label for="title">Title:</label>
+      <input type="text" name="title[]" required>
+
+      <label for="description">Description:</label>
+      <input type="text" name="description[]" required>
+
+      <label for="url">URL:</label>
+      <input type="text" name="url[]" required>
+    </div>
+  </div>
+
+  <!-- Allow users to add more content inputs if needed -->
+  <div id="additionalContent"></div>
+  <button type="button" onclick="addContentInput()">Add More Content</button>
+
+  <button type="submit">Publish</button>
+</form>
+
+<script>
+  function addContentInput() {
+    var contentInputsDiv = document.getElementById("contentInputs");
+    var additionalContentDiv = document.getElementById("additionalContent");
+
+    // Clone the content input container
+    var clonedContentInput = contentInputsDiv.firstElementChild.cloneNode(true);
+
+    // Clear the input values of the cloned container
+    var clonedInputs = clonedContentInput.getElementsByTagName("input");
+    for (var i = 0; i < clonedInputs.length; i++) {
+      clonedInputs[i].value = "";
+    }
+
+    // Append the cloned container to the additional content section
+    additionalContentDiv.appendChild(clonedContentInput);
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Image Slider</title>
+    <style>
+        #slider {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #slider img {
+            width: 200px;
+            height: 200px;
+            margin-right: 10px;
+        }
+        #slider .slide {
+            display: inline-block;
+            white-space: nowrap;
+        }
+        #slider .slide img {
+            cursor: pointer;
+        }
+        #slider .lightbox {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #slider .lightbox img {
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+<div id="slider">
+    <div class="slide">
+        <img src="image1.jfif">
+        <img src="image2.jfif">
+        <img src="image3.jfif">
+        <img src="image4.jfif">
+        <img src="image5.jfif">
+        <img src="image6.jfif">
+        <img src="image7.jfif">
+        <img src="image8.jfif">
+        <img src="image9.jfif">
+    </div>
+    <div class="lightbox"></div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
